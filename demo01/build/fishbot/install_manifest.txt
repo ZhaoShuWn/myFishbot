@@ -1,0 +1,16 @@
+/home/shuwn/my_fishrobot/demo01/install/fishbot/share/fishbot//launch/display_robot.launch.py
+/home/shuwn/my_fishrobot/demo01/install/fishbot/share/ament_index/resource_index/package_run_dependencies/fishbot
+/home/shuwn/my_fishrobot/demo01/install/fishbot/share/ament_index/resource_index/parent_prefix_path/fishbot
+/home/shuwn/my_fishrobot/demo01/install/fishbot/share/fishbot/environment/ament_prefix_path.sh
+/home/shuwn/my_fishrobot/demo01/install/fishbot/share/fishbot/environment/ament_prefix_path.dsv
+/home/shuwn/my_fishrobot/demo01/install/fishbot/share/fishbot/environment/path.sh
+/home/shuwn/my_fishrobot/demo01/install/fishbot/share/fishbot/environment/path.dsv
+/home/shuwn/my_fishrobot/demo01/install/fishbot/share/fishbot/local_setup.bash
+/home/shuwn/my_fishrobot/demo01/install/fishbot/share/fishbot/local_setup.sh
+/home/shuwn/my_fishrobot/demo01/install/fishbot/share/fishbot/local_setup.zsh
+/home/shuwn/my_fishrobot/demo01/install/fishbot/share/fishbot/local_setup.dsv
+/home/shuwn/my_fishrobot/demo01/install/fishbot/share/fishbot/package.dsv
+/home/shuwn/my_fishrobot/demo01/install/fishbot/share/ament_index/resource_index/packages/fishbot
+/home/shuwn/my_fishrobot/demo01/install/fishbot/share/fishbot/cmake/fishbotConfig.cmake
+/home/shuwn/my_fishrobot/demo01/install/fishbot/share/fishbot/cmake/fishbotConfig-version.cmake
+/home/shuwn/my_fishrobot/demo01/install/fishbot/share/fishbot/package.xml
