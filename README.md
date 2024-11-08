@@ -46,8 +46,8 @@ ros2 launch my_robot_package my_launch_file.launch.py
 ### 4. **各个文件为了完成的任务**
 
 1. demo01的目的是为了建模一个小车，能够在gazebo中运动（不带任何传感器）
-1. demo02加上fishbot的各种传感器
-1. demo02实现用demo02中的机器人来进行navigation路径规划
+1. demo02的目的是在demo01基础上再加上fishbot的各种传感器
+1. demo03的目的是实现用demo02中的小车来进行navigation路径规划
 
 ### 5. 在实现过程中需要记录的一些内容
 
@@ -65,5 +65,11 @@ ros2 launch my_robot_package my_launch_file.launch.py
 
 ```
 ros2 run teleop_twist_keyboard teleop_twist_keyboard 
+```
+
+### 5.4 启动slam-toolbox
+
+```
+ros2 launch slam_toolbox online_async_launch.py use_sim_time:=True
 ```
 

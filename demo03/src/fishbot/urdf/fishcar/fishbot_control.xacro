@@ -53,7 +53,7 @@
         <gazebo>
             <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
                 <!-- 配置文件路径 -->
-                <parameters>$(find fishbot)/config/fishbot_ros2_controller.yaml</parameters>
+                <parameters>$(find fishbot)/config/fishbot_controller.yaml</parameters>
                 
                 <!-- 话题重映射 -->
                 <ros>

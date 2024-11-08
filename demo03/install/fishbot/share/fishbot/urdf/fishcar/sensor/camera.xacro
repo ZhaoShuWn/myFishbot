@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:include filename="$(find fishbot)/urdf/common_inertia.xacro" />
+
+    <xacro:macro name="camera_xacro" params="xyz">
+        <!-- 定义相机主体链接 camera_link -->
+        <link name="camera_link">
+            <visual>
+                <origin xyz="0 0 0.0" rpy="0 0 0" />
+                <geometry>
+                    <box size="0.02 0.10 0.02" />
+                </geometry>
+                <material name="black">
+                    <color rgba="0.0 0.0 0.0 0.8"/>
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0.0" rpy="0 0 0" />
+                <geometry>
+                    <box size="0.02 0.10 0.02" />
+                </geometry>
+                <material name="black">
+                    <color rgba="0.0 0.0 0.0 0.8"/>
+                </material>
+            </collision>
+            <!-- 使用外部定义的惯性参数，为 camera_link 设置惯性 -->
+            <xacro:box_inertia m="0.01" w="0.02" h="0.10" d="0.02" />
+        </link>
+        
+        <!-- 定义相机光学链接 camera_optical_link，通常用于传感器数据的参考框架 -->
+        <link name="camera_optical_link"></link>
+    
+        <!-- 定义固定关节 camera_optical_joint，将 camera_optical_link 连接到 camera_link 上 -->
+        <!-- 这里就相当于对camera_link转了一下，为了让z轴指向前面 -->
+        <joint name="camera_optical_joint" type="fixed">
+            <parent link="camera_link" />
+            <child link="camera_optical_link" />
+            <!-- 设置关节的原点位置和姿态，绕 Roll 和 Yaw 轴旋转 -90 度 -->
+            <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}" />
+        </joint>
+    
+        <!-- 定义固定关节 camera_joint，将 camera_link 连接到 base_link 上 -->
+        <joint name="camera_joint" type="fixed">
+            <parent link="base_link" />
+            <child link="camera_link" />
+            <!-- 设置关节的原点位置，使用传入的 xyz 参数，实现相机在机器人基座上的定位 -->
+            <origin xyz="${xyz}" />
+        </joint>
+    
+    </xacro:macro>
+</robot>
