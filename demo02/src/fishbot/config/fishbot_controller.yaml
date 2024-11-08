@@ -11,7 +11,7 @@ controller_manager:
     # 力矩控制器，用于控制机器人左右轮子的力矩（力）
     fishbot_effort_controller:
       type: effort_controllers/JointGroupEffortController  # 使用 JointGroupEffortController 类型
-    
+
     # 差速驱动控制器，控制左右轮子以实现机器人运动
     fishbot_diff_drive_controller:
       type: diff_drive_controller/DiffDriveController  # 使用 DiffDriveController 类型

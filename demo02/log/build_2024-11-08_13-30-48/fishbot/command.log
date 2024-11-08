@@ -1,0 +1,4 @@
+Invoking command in '/home/shuwn/my_fishrobot/demo02/build/fishbot': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/shuwn/my_fishrobot/demo02/build/fishbot -- -j16 -l16
+Invoked command in '/home/shuwn/my_fishrobot/demo02/build/fishbot' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/shuwn/my_fishrobot/demo02/build/fishbot -- -j16 -l16
+Invoking command in '/home/shuwn/my_fishrobot/demo02/build/fishbot': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/shuwn/my_fishrobot/demo02/build/fishbot
+Invoked command in '/home/shuwn/my_fishrobot/demo02/build/fishbot' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/shuwn/my_fishrobot/demo02/build/fishbot

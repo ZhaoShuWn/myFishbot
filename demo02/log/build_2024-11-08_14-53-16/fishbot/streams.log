@@ -1,0 +1,46 @@
+[0.009s] Invoking command in '/home/shuwn/my_fishrobot/demo02/build/fishbot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/shuwn/my_fishrobot/demo02/build/fishbot -- -j16 -l16
+[0.046s] Invoked command in '/home/shuwn/my_fishrobot/demo02/build/fishbot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/shuwn/my_fishrobot/demo02/build/fishbot -- -j16 -l16
+[0.076s] Invoking command in '/home/shuwn/my_fishrobot/demo02/build/fishbot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/shuwn/my_fishrobot/demo02/build/fishbot
+[0.081s] -- Install configuration: ""
+[0.081s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot//launch
+[0.082s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot//launch/display_robot.launch.py
+[0.082s] -- Installing: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot//launch/gazebo_sim.launch.py
+[0.082s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot//urdf
+[0.082s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot//urdf/common_inertia.xacro
+[0.082s] -- Installing: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot//urdf/fishbot.xacro
+[0.082s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot//urdf/fishcar
+[0.082s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot//urdf/fishcar/base.xacro
+[0.082s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot//urdf/fishcar/sensor
+[0.082s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot//urdf/fishcar/sensor/laser.xacro
+[0.083s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot//urdf/fishcar/sensor/camera.xacro
+[0.083s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot//urdf/fishcar/sensor/imu.xacro
+[0.083s] -- Installing: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot//urdf/fishcar/fishbot_control.xacro
+[0.083s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot//urdf/fishcar/plugins
+[0.083s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot//urdf/fishcar/plugins/gazebo_control_plugin.xacro
+[0.083s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot//urdf/fishcar/plugins/gazebo_sensor_plugin.xacro
+[0.083s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot//urdf/fishcar/actuator
+[0.083s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot//urdf/fishcar/actuator/wheel.xacro
+[0.083s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot//urdf/fishcar/actuator/caster.xacro
+[0.083s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot//world
+[0.083s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot//world/custom_room.world
+[0.083s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot//world/room
+[0.083s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot//world/room/model.sdf
+[0.083s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot//world/room/model.config
+[0.083s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot//config
+[0.083s] -- Installing: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot//config/fishbot_controller.yaml
+[0.083s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/ament_index/resource_index/package_run_dependencies/fishbot
+[0.083s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/ament_index/resource_index/parent_prefix_path/fishbot
+[0.083s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot/environment/ament_prefix_path.sh
+[0.083s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot/environment/ament_prefix_path.dsv
+[0.084s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot/environment/path.sh
+[0.084s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot/environment/path.dsv
+[0.084s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot/local_setup.bash
+[0.084s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot/local_setup.sh
+[0.084s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot/local_setup.zsh
+[0.084s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot/local_setup.dsv
+[0.085s] -- Installing: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot/package.dsv
+[0.085s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/ament_index/resource_index/packages/fishbot
+[0.085s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot/cmake/fishbotConfig.cmake
+[0.085s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot/cmake/fishbotConfig-version.cmake
+[0.085s] -- Up-to-date: /home/shuwn/my_fishrobot/demo02/install/fishbot/share/fishbot/package.xml
+[0.085s] Invoked command in '/home/shuwn/my_fishrobot/demo02/build/fishbot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/shuwn/my_fishrobot/demo02/build/fishbot

@@ -24,6 +24,7 @@
             <xacro:sphere_inertia m="0.01" r="${radius}"/>  <!-- 加入惯性矩阵 -->
         </link>
 
+        <!-- 万向轮的摩擦被定义为都是0 -->
         <gazebo reference="${caster_name}_caster_link">
             <mu1 value="0.0" />
             <mu2 value="0.0" />

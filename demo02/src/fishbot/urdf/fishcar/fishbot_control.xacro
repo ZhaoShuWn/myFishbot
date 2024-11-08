@@ -1,12 +1,11 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <!-- 定义一个名为 fishbot_ros2_control 的宏，用于设置 fishbot 的控制系统 -->
     <xacro:macro name="fishbot_ros2_control">
         
         <!-- ROS 2 控制配置，名称为 FishBotGazeboSystem，类型为 system -->
         <ros2_control name="FishBotGazeboSystem" type="system">
-            
+
             <!-- 硬件插件配置，使用 gazebo_ros2_control 插件 -->
             <hardware>
                 <plugin>gazebo_ros2_control/GazeboSystem</plugin>

@@ -47,8 +47,9 @@ ros2 launch my_robot_package my_launch_file.launch.py
 
 1. demo01的目的是为了建模一个小车，能够在gazebo中运动（不带任何传感器）
 1. demo02加上fishbot的各种传感器
+1. demo02实现用demo02中的机器人来进行navigation路径规划
 
-### 5. ros2中各种话题
+### 5. 在实现过程中需要记录的一些内容
 
 #### 5.1 robot_state_publisher 发布的 /robot_state_publisher话题
 
@@ -56,5 +57,13 @@ ros2 launch my_robot_package my_launch_file.launch.py
 
 2. /tf：动态的坐标关系，需要不断的发布（如果是可以运动的关节，则用/tf发布）
 
+### 5.2 tf-tree
 
+![](./demo02_frames.png)
+
+### 5.3 可以用这行命令来控制机器人
+
+```
+ros2 run teleop_twist_keyboard teleop_twist_keyboard 
+```
 

@@ -70,12 +70,14 @@ def generate_launch_description():
         launch.actions.RegisterEventHandler(
             event_handler=launch.event_handlers.OnProcessExit(
                 target_action=spawn_entity_node,
-                on_exit=[load_joint_state_controller],)
-            ),
+                on_exit=[load_joint_state_controller]
+            )
+        ),
         # 事件动作，load_fishbot_diff_drive_controller
         launch.actions.RegisterEventHandler(
-        event_handler=launch.event_handlers.OnProcessExit(
-            target_action=load_joint_state_controller,
-            on_exit=[load_fishbot_diff_drive_controller],)
-            ),
+            event_handler=launch.event_handlers.OnProcessExit(
+                target_action=load_joint_state_controller,
+                on_exit=[load_fishbot_diff_drive_controller]
+            )
+        )
     ])

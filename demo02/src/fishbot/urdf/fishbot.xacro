@@ -12,8 +12,10 @@
 
     <!-- Gazebo 插件 -->
     <!-- <xacro:include filename="$(find fishbot)/urdf/fishbot/plugins/gazebo_control_plugin.xacro" /> -->
+    <xacro:include filename="$(find fishbot)/urdf/fishcar/plugins/gazebo_sensor_plugin.xacro" />
+
     <!-- ros2_control -->
-    <xacro:include filename="$(find fishbot)/urdf/fishcar/fishbot.ros2_control.xacro" />
+    <xacro:include filename="$(find fishbot)/urdf/fishcar/fishbot_control.xacro" />
     
     
     <!-- 调用底座的宏 -->
@@ -27,8 +29,11 @@
     <xacro:imu_xacro xyz="0 0 0.02" />
     <xacro:laser_xacro xyz="0 0 0.10" />
     <xacro:camera_xacro xyz="0.10 0 0.075" />
-    <!-- 调用gazebo_control -->
+
+    <!-- 调用gazebo_插件 -->
     <!-- <xacro:gazebo_control_plugin /> -->
+    <xacro:gazebo_sensor_plugin />
+
     <!-- 调用ros2_control -->
     <xacro:fishbot_ros2_control />
 </robot>

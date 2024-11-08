@@ -21,6 +21,7 @@ def generate_launch_description():
         value_type=str)
     
   	# robot_state_publisher_node（在gazebo仿真环境中，不需要joint_state_publisher_node）
+    # robot_state_publisher 可以通过话题 /robot_description 把urdf的内容发布出来
     robot_state_publisher_node = launch_ros.actions.Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
@@ -69,12 +70,14 @@ def generate_launch_description():
         launch.actions.RegisterEventHandler(
             event_handler=launch.event_handlers.OnProcessExit(
                 target_action=spawn_entity_node,
-                on_exit=[load_joint_state_controller],)
-            ),
+                on_exit=[load_joint_state_controller]
+            )
+        ),
         # 事件动作，load_fishbot_diff_drive_controller
         launch.actions.RegisterEventHandler(
-        event_handler=launch.event_handlers.OnProcessExit(
-            target_action=load_joint_state_controller,
-            on_exit=[load_fishbot_diff_drive_controller],)
-            ),
+            event_handler=launch.event_handlers.OnProcessExit(
+                target_action=load_joint_state_controller,
+                on_exit=[load_fishbot_diff_drive_controller]
+            )
+        )
     ])

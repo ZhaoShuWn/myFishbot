@@ -3,12 +3,11 @@
     <xacro:include filename="$(find fishbot)/urdf/common_inertia.xacro" />
     
     <xacro:macro name="laser_xacro" params="xyz">
-        <!-- 为 gazebo 模拟器设置 laser_cylinder_link 的材质为黑色 -->
-        <gazebo reference="laser_cylinder_link">
+        <!-- gazebo标签只有gazebo能看见，对其他没有影响 -->
+        <gazebo reference="laser_cylinder_link">   <!-- 为 gazebo 模拟器设置 laser_cylinder_link 的材质为黑色 -->
             <material>Gazebo/Black</material>
         </gazebo>
-        <!-- 为 gazebo 模拟器设置 laser_link 的材质为黑色 -->
-        <gazebo reference="laser_link">
+        <gazebo reference="laser_link">    <!-- 为 gazebo 模拟器设置 laser_link 的材质为黑色 -->
             <material>Gazebo/Black</material>
         </gazebo>
     

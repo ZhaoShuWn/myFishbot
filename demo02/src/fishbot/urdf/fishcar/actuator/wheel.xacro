@@ -29,7 +29,7 @@
         <gazebo reference="${wheel_name}_wheel_link">
             <mu1 value="20.0" />                  <!-- 切向的摩擦系数 -->
             <mu2 value="20.0" />                  <!-- 法向的摩擦系数 -->
-            <kp value="1000000000.0" />           <!-- 接触的刚度系数 -->
+            <kp value="1000000.0" />           <!-- 接触的刚度系数 -->
             <kd value="1.0" />                    <!-- 阻尼系数 -->
         </gazebo>
 
