@@ -46,12 +46,15 @@ ros2 launch my_robot_package my_launch_file.launch.py
 ### 4. **各个文件为了完成的任务**
 
 1. demo01的目的是为了建模一个小车，能够在gazebo中运动（不带任何传感器）
+1. demo02加上fishbot的各种传感器
 
 ### 5. ros2中各种话题
 
-#### 5.1 TF
+#### 5.1 robot_state_publisher 发布的 /robot_state_publisher话题
 
-/tf_static：静态的坐标
+1. /tf_static：静态的坐标（如果是fixed的关节，这用tf_static来发布出去）
 
-/tf：动态的坐标关系，需要不断的发布
+2. /tf：动态的坐标关系，需要不断的发布（如果是可以运动的关节，则用/tf发布）
+
+
 
