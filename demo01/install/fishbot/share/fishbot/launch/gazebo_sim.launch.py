@@ -47,15 +47,18 @@ def generate_launch_description():
             'fishbot_joint_state_broadcaster'],
         output='screen')
 
-    # 加载并激活 fishbot_effort_controller 控制器
+    # 差速控制器和力控制器都是可以控制机器人运动，两个有一个就行
+    # 加载并激活 fishbot_effort_controller 力控制器
     load_fishbot_effort_controller = launch.actions.ExecuteProcess(
         cmd=['ros2', 'control', 'load_controller', '--set-state', 'active','fishbot_effort_controller'], 
         output='screen')
-    
+    # 加载并激活 fishbot_effort_controller 差速控制器
     load_fishbot_diff_drive_controller = launch.actions.ExecuteProcess(
         cmd=['ros2', 'control', 'load_controller', '--set-state', 'active','fishbot_diff_drive_controller'], 
         output='screen')
     
+
+
     return launch.LaunchDescription([
         action_declare_arg_mode_path,
         robot_state_publisher_node,

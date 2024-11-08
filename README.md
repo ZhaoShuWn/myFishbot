@@ -46,3 +46,12 @@ ros2 launch my_robot_package my_launch_file.launch.py
 ### 4. **各个文件为了完成的任务**
 
 1. demo01的目的是为了建模一个小车，能够在gazebo中运动（不带任何传感器）
+
+### 5. ros2中各种话题
+
+#### 5.1 TF
+
+/tf_static：静态的坐标
+
+/tf：动态的坐标关系，需要不断的发布
+
