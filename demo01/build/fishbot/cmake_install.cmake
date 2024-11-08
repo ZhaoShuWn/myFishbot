@@ -43,7 +43,12 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/fishbot/" TYPE DIRECTORY FILES "/home/shuwn/my_fishrobot/demo01/src/fishbot/launch")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/fishbot/" TYPE DIRECTORY FILES
+    "/home/shuwn/my_fishrobot/demo01/src/fishbot/launch"
+    "/home/shuwn/my_fishrobot/demo01/src/fishbot/urdf"
+    "/home/shuwn/my_fishrobot/demo01/src/fishbot/world"
+    "/home/shuwn/my_fishrobot/demo01/src/fishbot/config"
+    )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)

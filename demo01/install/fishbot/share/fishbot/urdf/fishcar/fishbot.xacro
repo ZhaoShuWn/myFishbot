@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="fishbot">
+    <!-- fishcar的底座 -->
+    <xacro:include filename="$(find fishbot)/urdf/fishcar/base.xacro" />
+     <!-- 执行器组件 -->
+    <xacro:include filename="$(find fishbot)/urdf/fishcar/actuator/wheel.xacro" />
+    <xacro:include filename="$(find fishbot)/urdf/fishcar/actuator/caster.xacro" />
+    <!-- 调用底座的宏 -->
+    <xacro:base_xacro length="0.12" radius="0.1" />
+    <!-- 调用底座执行器主动轮+从动轮的宏 -->
+    <xacro:wheel_xacro wheel_name="left" length="0.04" radius="0.032" xyz="0 0.10 -0.06" />
+    <xacro:wheel_xacro wheel_name="right" length="0.04" radius="0.032" xyz="0 -0.10 -0.06" />
+    <xacro:caster_xacro caster_name="front" radius="0.016" xyz="0.08 0.0 -0.076" />
+    <xacro:caster_xacro caster_name="back" radius="0.016" xyz="-0.08 0.0 -0.076" />
+    <!-- Gazebo 插件 -->
+    <xacro:include filename="$(find fishbot)/urdf/fishcar/plugins/gazebo_control_plugin.xacro" />
+    <!-- <xacro:gazebo_control_plugin /> -->
+    <xacro:include filename="$(find fishbot)/urdf/fishcar/fishbot.ros2_control.xacro" />
+    <xacro:fishbot_ros2_control />
+    <xacro:include filename="$(find fishbot)/urdf/fishcar/plugins/gazebo_sensor_plugin.xacro" />
+    <xacro:gazebo_sensor_plugin />
+</robot>

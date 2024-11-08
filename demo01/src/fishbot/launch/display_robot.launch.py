@@ -5,14 +5,10 @@ from ament_index_python.packages import get_package_share_directory # 用于获�
 
 # 这个函数是固定要写的，函数名也得保持一致
 def generate_launch_description():
-    share_path = get_package_share_directory('fishbot')
+    fishbot_node_path = get_package_share_directory('fishbot')  # share_path = install/fishbot/share/fishbot
+    default_model_path = fishbot_node_path + '/urdf/fishbot.xacro'
     
-    default_model_path = share_path + '/urdf/first_robot.urdf'
-    
-    # 构建 RViz 配置文件的默认路径，`urdf_tutorial_path` 后加上 `/config/rviz/display_model.rviz`
-    default_rviz_config_path = urdf_tutorial_path + '/config/rviz/display_model.rviz'
-    
-    # 创建 `DeclareLaunchArgument` 动作，用于声明一个名为 `model` 的 launch 参数
+    # 声明一个名为 `model` 的 launch 参数
     # 参数 `name` 是参数名称，`default_value` 是默认值，`description` 提供参数的描述信息
     action_declare_arg_mode_path = launch.actions.DeclareLaunchArgument(
         name='model', default_value=str(default_model_path),
@@ -46,7 +42,6 @@ def generate_launch_description():
     rviz_node = launch_ros.actions.Node(
         package='rviz2',  # 所属包名
         executable='rviz2',  # 要执行的可执行文件
-        arguments=['-d', default_rviz_config_path]  # 启动时传递 RViz 配置文件路径作为参数
     )
     
     # 返回一个 `LaunchDescription` 对象，其中包含所有要启动的动作
