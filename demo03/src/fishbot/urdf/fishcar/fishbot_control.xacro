@@ -6,11 +6,11 @@
         <!-- ROS 2 控制配置，名称为 FishBotGazeboSystem，类型为 system -->
         <ros2_control name="FishBotGazeboSystem" type="system">
 
-            <!-- 硬件插件配置，使用 gazebo_ros2_control 插件 -->
+            <!-- 硬件插件配置，（这里在仿真环境中，硬件也是仿真出来的所以用gazebo）使用 gazebo_ros2_control 插件 -->
             <hardware>
                 <plugin>gazebo_ros2_control/GazeboSystem</plugin>
             </hardware>
-            
+
             <!-- 左轮的关节控制配置 -->
             <joint name="left_wheel_joint">
                 <!-- 速度控制接口 -->

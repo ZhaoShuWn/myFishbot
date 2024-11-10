@@ -1,75 +1,66 @@
 # ROS2学习-fishbot
 
-### 1. **工作空间结构**
+fishbot是一个扫地机器人样式的小车，带有激光雷达、摄像机什么的。
 
-一个标准的 ROS2 工作空间通常有以下结构：
-
-```
-ros2_ws/                   # 工作空间根目录
-├── src/                   # 包含所有 ROS2 包的源代码目录
-├── build/                 # 编译输出文件夹，由 colcon 自动生成
-├── install/               # 安装文件夹，包含各包的构建结果，供运行时使用
-├── log/                   # 运行和构建日志文件
-└── colcon.meta            # colcon 的配置文件（可选）
-```
-
-### 2. **ROS2 包的基本结构**
-
-在 `src` 目录下，每个子文件夹通常代表一个 ROS2 包，每个包的标准结构如下：
-
-```
-my_robot_package/           # ROS2 包的名称
-├── package.xml             # 包的描述文件，定义依赖项、作者信息等
-├── CMakeLists.txt          # 构建系统配置文件，用于指定构建指令
-├── setup.py                # 如果是 Python 包，setup.py 用于定义构建和安装过程
-├── src/                    # 包含源代码的文件夹（Python 或 C++ 文件）
-│   ├── my_robot_node.cpp   # 示例源代码文件（C++）
-│   └── my_robot_node.py    # 示例源代码文件（Python）
-├── launch/                 # 启动文件目录，包含用于启动系统的文件
-│   └── my_launch_file.launch.py
-├── urdf/                   # 机器人的 URDF 文件，用于描述机器人模型
-│   └── my_robot.urdf
-├── config/                 # 配置文件夹，包含 YAML 等配置文件
-│   └── my_config.yaml
-└── rviz/                   # RViz 配置文件目录，用于可视化的设置
-    └── my_robot.rviz
-```
-
-### 3. **示例：运行一个节点**
-
-如果你有一个 `launch` 文件 `my_launch_file.launch.py`，可以通过以下命令运行：
-
-```
-ros2 launch my_robot_package my_launch_file.launch.py
-```
-
-### 4. **各个文件为了完成的任务**
+### 1. **各个文件为了完成的任务**
 
 1. demo01的目的是为了建模一个小车，能够在gazebo中运动（不带任何传感器）
 1. demo02的目的是在demo01基础上再加上fishbot的各种传感器
 1. demo03的目的是实现用demo02中的小车来进行navigation路径规划
 
-### 5. 在实现过程中需要记录的一些内容
+### 2. 在实现过程中需要记录的一些内容
 
-#### 5.1 robot_state_publisher 发布的 /robot_state_publisher话题
+### 2.1 该项目的话题结构解析
 
-1. /tf_static：静态的坐标（如果是fixed的关节，这用tf_static来发布出去）
+1. 写好urdf文件，然后通过robot_state_publisher功能包来发布关节的静态结构。通过joint_state_publisher来发布关节的结构。
 
-2. /tf：动态的坐标关系，需要不断的发布（如果是可以运动的关节，则用/tf发布）
+```python
+# robot_description实际上是一个字符串，这个字符串就是urdf的全部内容
+robot_description = launch_ros.parameter_descriptions.ParameterValue(
+    launch.substitutions.Command(
+    ['xacro ', launch.substitutions.LaunchConfiguration('model')]),  # Command类在运行时执行命令行命令
+    value_type=str  # `value_type` 指定参数类型为字符串
+)
 
-### 5.2 tf-tree
+# robot_state_publisher_node 订阅 /joint_states 主题，从中获取关节的动态状态（如位置、速度），然后将这些关节状态信息转化为机器人的姿态（坐标变换）。这些坐标信息以 TF 坐标系的形式发布在 ROS 网络中。
+robot_state_publisher_node = launch_ros.actions.Node(
+    package='robot_state_publisher',
+    executable='robot_state_publisher',
+    parameters=[{'robot_description': robot_description}]  # 将参数传递给节点 `robot_description`
+)
+```
 
-![](./demo02_frames.png)
-
-### 5.3 可以用这行命令来控制机器人
+2. 在gazebo中加载机器人
 
 ```
-ros2 run teleop_twist_keyboard teleop_twist_keyboard 
+# 请求 Gazebo 加载机器人
+robot_name_in_model = "fishbot"
+spawn_entity_node = launch_ros.actions.Node(
+    package='gazebo_ros',
+    executable='spawn_entity.py',
+    arguments=['-topic', '/robot_description',  # 这个参数指定了 Gazebo 从/robot_description话题中获取模型信息
+	'-entity', robot_name_in_model, ]
+)
 ```
 
-### 5.4 启动slam-toolbox
+
+3. 我们现在需要发布关节信息了
 
 ```
+# 加载并激活 fishbot_joint_state_broadcaster 控制器
+# 我们在这里发布关节信息，只要发布里关节信息，robot_state_publisher_node 会自动来订阅
+load_joint_state_controller = launch.actions.ExecuteProcess(
+    cmd=['ros2', 'control', 'load_controller', '--set-state', 'active', 'fishbot_joint_state_broadcaster'], 	output='screen'
+)
+```
+
+
+
+### 2.2 一些可能需要用到的指令
+
+```bash
+# 用键盘来控制机器人
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+# 启动slam-toolbox
 ros2 launch slam_toolbox online_async_launch.py use_sim_time:=True
 ```
-

@@ -21,6 +21,8 @@ setup(
     entry_points={
         'console_scripts': [
             "init_robot_pose=fishbot_application.init_robot_pose:main",
+            "get_robot_pose=fishbot_application.get_robot_pose:main",
+            "nav_to_pose=fishbot_application.nav_to_pose:main",
         ],
     },
 )

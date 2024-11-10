@@ -32,7 +32,8 @@ def generate_launch_description():
         PythonLaunchDescriptionSource([get_package_share_directory(
             'gazebo_ros'), '/launch', '/gazebo.launch.py']),
       	# 传递参数
-        launch_arguments=[('world', default_world_path),('verbose','true')])
+        launch_arguments=[('world', default_world_path),('verbose','true')]
+    )
     
     # 请求 Gazebo 加载机器人
     robot_name_in_model = "fishbot"
@@ -40,7 +41,8 @@ def generate_launch_description():
         package='gazebo_ros',
         executable='spawn_entity.py',
         arguments=['-topic', '/robot_description',  # 这个参数指定了 Gazebo 从 ROS 的 /robot_description 话题中获取机器人的模型信息
-                   '-entity', robot_name_in_model, ])
+                   '-entity', robot_name_in_model, ]
+    )
     
     # 加载并激活 fishbot_joint_state_broadcaster 控制器
     load_joint_state_controller = launch.actions.ExecuteProcess(
