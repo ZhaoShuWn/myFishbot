@@ -60,7 +60,6 @@ def generate_launch_description():
     load_fishbot_diff_drive_controller = launch.actions.ExecuteProcess(
         cmd=['ros2', 'control', 'load_controller', '--set-state', 'active','fishbot_diff_drive_controller'], 
         output='screen')
-    
 
 
     return launch.LaunchDescription([
